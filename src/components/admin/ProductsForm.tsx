@@ -20,8 +20,8 @@ import ModalAlert from "../ModalAlert";
 import ReactModal from "react-modal";
 
 type ProjectFormProps = {
-  mutateCreate?: UseMutateAsyncFunction<any, Error, ProductForm, unknown>,
-  mutateUpdate?: UseMutateAsyncFunction<any, Error, { formData: ProductForm, productId: Product["_id"] }, unknown>,
+  mutateCreate?: UseMutateAsyncFunction< Error, ProductForm, unknown>,
+  mutateUpdate?: UseMutateAsyncFunction< Error, { formData: ProductForm, productId: Product["_id"] }, unknown>,
   editingData?: Product,
   isCreate: boolean
 }
@@ -85,8 +85,8 @@ export default function ProductsForm({ mutateCreate, mutateUpdate, editingData, 
       setIngredients("")
     } else {
       if (subcategory)
-        setPrice(data?.find(cat => cat._id === category)?.subCategories.find(subcat => subcat._id === subcategory)?.priceBig!)
-      setPrice2(data?.find(cat => cat._id === category)?.subCategories.find(subcat => subcat._id === subcategory)?.priceSmall!)
+        setPrice(data!.find(cat => cat._id === category)?.subCategories.find(subcat => subcat._id === subcategory)?.priceBig!)
+      setPrice2(data!.find(cat => cat._id === category)?.subCategories.find(subcat => subcat._id === subcategory)?.priceSmall!)
     }
   }, [category, subcategory])
 

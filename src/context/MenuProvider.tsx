@@ -72,7 +72,7 @@ const MenuProvider = ({ children }: props) => {
   const handleAgregarItem = (e: { preventDefault: () => void }) => {
     e.preventDefault()
 
-    let pedidoNuevo: item[] = pedido
+    const pedidoNuevo: item[] = pedido
     const item: item = {
       _id: productoActual._id,
       categoria: productoActual.category,
@@ -158,7 +158,7 @@ const MenuProvider = ({ children }: props) => {
     if (item.cantidad === 1) {
       return
     } else {
-      let pedidoNuevo = pedido
+      const pedidoNuevo = pedido
       const index = pedidoNuevo.findIndex(objeto => objeto._id === item._id)
       item.cantidad = item.cantidad - 1
       pedidoNuevo.splice(index, 1, item)
@@ -168,7 +168,7 @@ const MenuProvider = ({ children }: props) => {
   }
 
   const handleSumarCantidad = (item: item) => {
-    let pedidoNuevo = pedido
+    const pedidoNuevo = pedido
     const index = pedidoNuevo.findIndex(objeto => objeto._id === item._id)
     item.cantidad = item.cantidad + 1
     pedidoNuevo.splice(index, 1, item)
