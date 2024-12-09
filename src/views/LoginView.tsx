@@ -5,12 +5,18 @@ import ErrorMessage from "../components/admin/ErrorMessage"
 export default function LoginView() {
   const [name, setname] = useState("")
   const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
+  const [error, setError] = useState(false)
+
+  const handleOnSubmit = () => {
+    if(name || password === "") {
+      setError(true)
+    }
+  }
 
   return (
     <form 
       className={styles.login_container}
-      onSubmit={() => {}}
+      onSubmit={() => {handleOnSubmit}}
       noValidate
     >
       <div className={styles.contenedor_label_input}>
