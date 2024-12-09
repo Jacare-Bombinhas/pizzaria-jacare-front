@@ -85,8 +85,8 @@ export default function ProductsForm({ mutateCreate, mutateUpdate, editingData, 
       setIngredients("")
     } else {
       if (subcategory)
-        setPrice(data!.find(cat => cat._id === category)?.subCategories.find(subcat => subcat._id === subcategory)?.priceBig!)
-      setPrice2(data!.find(cat => cat._id === category)?.subCategories.find(subcat => subcat._id === subcategory)?.priceSmall!)
+        setPrice(data!.find(cat => cat._id === category)!.subCategories.find(subcat => subcat._id === subcategory)!.priceBig!)
+      setPrice2(data!.find(cat => cat._id === category)!.subCategories.find(subcat => subcat._id === subcategory)!.priceSmall!)
     }
   }, [category, subcategory])
 
