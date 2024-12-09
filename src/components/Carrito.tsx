@@ -1,7 +1,6 @@
 import { motion } from "framer-motion"
 import useMenu from "../hooks/useMenu"
 import ItemCarrito from "./ItemCarrito"
-import { item } from "../types/types"
 
 const Carrito = () => {
   const { pedido, total, handleChangeCarrito, handleRealizarPedido } = useMenu()
@@ -31,7 +30,7 @@ const Carrito = () => {
       <h2 className="titulo_carrito">Seu Pedido</h2>
 
       <div className="contenedor_mapeo">
-        {pedido.map((item: item) => (
+        {pedido.map((item) => (
           <ItemCarrito
             key={item._id}
             item={item}

@@ -49,7 +49,7 @@ const MenuProvider = ({ children }: props) => {
 
   const obtenerPedido = () => {
     const pedidoAlmacenado = localStorage.getItem("pedido")
-    const pedidoObtenido = pedidoAlmacenado ? JSON.parse(pedidoAlmacenado) : []
+    const pedidoObtenido: item[] = pedidoAlmacenado ? JSON.parse(pedidoAlmacenado) : []
     setPedido(pedidoObtenido)
     if (pedidoObtenido.length >= 1) {
       setDelivery(true)
