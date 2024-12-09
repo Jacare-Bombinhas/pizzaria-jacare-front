@@ -188,7 +188,7 @@ export default function CategoryItem({ category, editCategory, deleteCategory }:
   }
 
   return (
-    <li key={category._id} className={styles.category_container}>
+    <li id={category._id} key={category._id} className={styles.category_container}>
       <div className={styles.category}>
         <div className={styles.cat_name_side}>
           <ArrowSVG 
@@ -212,6 +212,7 @@ export default function CategoryItem({ category, editCategory, deleteCategory }:
       {(showSubs && subCategoryList.length) ? 
         <div className={styles.pad}>
         <ReactSortable
+          id="subCategory"
           tag="ul"
           className={styles.subCats_container}
           list={subCategoryList}
@@ -222,7 +223,7 @@ export default function CategoryItem({ category, editCategory, deleteCategory }:
           onEnd={(evt) => handleSortSubCategories(evt)}
         >
           {subCategoryList.map(subCat =>
-            <li key={subCat._id} className={styles.subCategory_container}>
+            <li id={subCat._id} key={subCat._id} className={styles.subCategory_container}>
                 <h2 className={styles.category_name}>{subCat.nameSub}</h2>
 
                 <div className={styles.price_menu}>
