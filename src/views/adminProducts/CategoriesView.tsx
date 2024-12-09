@@ -173,7 +173,6 @@ export default function CategoriesView() {
 
       {categoryList.length ? (
         <ReactSortable
-          id="category"
           tag="ul"
           className={styles.list_container}
           list={categoryList}
