@@ -1,4 +1,6 @@
 import { Outlet } from "react-router-dom"
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css'
 
 import styles from "../styles/layouts/LoginLayout.module.css"
 
@@ -12,6 +14,11 @@ export default function LoginLayout() {
       <section className={styles.section}>
         <Outlet />
       </section>
+
+      <ToastContainer
+        pauseOnHover={false}
+        pauseOnFocusLoss={false}
+      />
     </div>
   )
 }

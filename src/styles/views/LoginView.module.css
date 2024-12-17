@@ -6,11 +6,18 @@
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), -2px -1px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.contenedor_label_input {
+.contenedor_label_input, 
+.contenedor_checkbox {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
   gap: 0.5rem;
+}
+
+.contenedor_checkbox {
+  flex-direction: row-reverse;
+  justify-content: left;
 }
 
 .label {
@@ -18,6 +25,11 @@
   line-height: 1rem;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.label_checkbox {
+  line-height: 1rem;
+  font-weight: 500;
 }
 
 .input {
@@ -31,6 +43,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.pass_eye {
+  position: absolute;
+  right: 1rem;
+  top: 2rem;
+  cursor: pointer;
 }
 
 .boton_submit {
@@ -48,3 +67,4 @@
 .boton_submit:hover {
   background-color: var(--color-button-hover);
 }
+

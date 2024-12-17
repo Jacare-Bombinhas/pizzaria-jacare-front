@@ -45,10 +45,11 @@ body {
 }
 
 .logo {
-  height: 160px;
+  height: 120px;
   position: absolute;
-  top: 5%;
-  left: 5%;
+  top: 3%;
+  left: 3%;
+  opacity: 0.8;
 }
 
 .titulo {
@@ -467,10 +468,6 @@ body {
   color: #df9930;
 }
 
-.marginB0 {
-  margin-bottom: -1rem;
-}
-
 .tamaño{
   display: flex;
   width: max-content;
@@ -568,8 +565,8 @@ body {
 }
 
 .titulo_producto {
-  margin: 10px 20px 10px 3px;
-
+  margin: 10px 20px 5px 3px;
+  font-weight: 700;
 }
 
 .titulo_producto span {
@@ -579,6 +576,12 @@ body {
 .contenedor_ingredientes {
   height: 100%;
   margin: 0px 15px 0px 3px;
+}
+
+.cont_precio_sabores {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .ingredientes {
@@ -601,7 +604,7 @@ body {
   font-size: medium;
   font-weight: bold;
   margin: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
   padding: 0px;
 }
 
@@ -743,7 +746,7 @@ body {
   align-items: center;
   height: 26px;
   gap: 10px;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding-right: 10px;
 }
 
@@ -752,9 +755,8 @@ body {
   margin: 0px;
 }
 
-.tamaño_pizza,
 .sabores {
-  width: 100px;
+  width: 60px;
   height: 20px;
   justify-self: flex-end;
   border: 1px solid black;

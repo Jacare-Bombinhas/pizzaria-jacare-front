@@ -2,7 +2,7 @@ import useMenu from '../hooks/useMenu'
 import { item } from '../types/types'
 
 const ItemCarrito = ({ item }: { item: item }) => {
-  const { categoria, sabores, precio, sabor1, sabor2, sabor3, tamaño, cantidad, _id } = item
+  const { categoria, sabores, precio, sabor1, sabor2, cantidad, _id } = item
   const { handleEliminarItem, handleRestarCantidad, handleSumarCantidad } = useMenu()
 
   const categorias = () => {
@@ -18,7 +18,7 @@ const ItemCarrito = ({ item }: { item: item }) => {
   return (
     <div className="item_carrito_info">
       <div className="contenedor_de_titulo">
-        <h3 className="item_carrito_categoria">{categorias()} {item.categoria === "pizzas" ? tamaño.toLowerCase() : ""}</h3>
+        <h3 className="item_carrito_categoria">{categorias()}</h3>
         <svg
           className="eliminar"
           xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,6 @@ const ItemCarrito = ({ item }: { item: item }) => {
       <div className="item_carrito_sabores">
         <p>{sabor1}</p>
         <p>{sabor2}</p>
-        <p>{sabor3}</p>
       </div>
       <div className="item_carrito_contenedor_cant_precio">
         <div className="item_carrito_contenedor_cantidad">

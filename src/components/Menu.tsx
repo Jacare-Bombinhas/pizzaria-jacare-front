@@ -9,7 +9,7 @@ import { Category } from "../types/categoriesTypes"
 import Producto from "./Producto"
 
 const Menu = () => {
-  const {pizza, menu, setMenu, delivery, setDelivery} = useMenu()
+  const { menu, setMenu, delivery, setDelivery} = useMenu()
   const [sortedCategories, setSortedCategories] = useState<Category[]>([])
   const [CategoryList, setCategoryList] = useState<Category[]>([])
 
@@ -74,11 +74,11 @@ const Menu = () => {
 
       {sortedCategories.map(category => (menu === category._id || "Tudo") && (
         <div key={category._id} className="general_products_container">
-          <div className={`titulo_submenuCat ${category._id === pizza && "marginB0"}`}>{category.name}</div>
+          <div className="titulo_submenuCat">{category.name}</div>
 
           <div className="contenedor_productos_mostrados">
             {category.products.filter(product => !product.subcategory).sort((a, b) => a.idNumber - b.idNumber).map(product => (
-              <Producto key={product._id} producto={product} isPizza={product.category === pizza}/>
+              <Producto key={product._id} producto={product}/>
             ))}
           </div>
 
@@ -91,36 +91,6 @@ const Menu = () => {
           ))}
         </div>
       ))}
-
-
-
-
-
-      {/* {(menu === "Pizza" || menu === "Tudo") && (
-        <>
-          {precios.map(precio => (
-            <Submenu 
-              key={precio.categoria} 
-              categoria={precio.categoria} 
-              precioGrande={precio.precioGrande} 
-              precioMedia={precio.precioMedia}
-            />
-          ))}
-        </>
-      )}
-
-      {(multisabor === false && (menu === "Prato" || menu === "Tudo")) && (
-        <Submenu categoria={"Pratos"} precioGrande={0} precioMedia={0}/>
-      )}
-
-      {(multisabor === false && (menu === "Bebidas" || menu === "Tudo")) && (
-        <>
-          <Submenu categoria={"Refri"} precioGrande={0} precioMedia={0}/>
-          <Submenu categoria={"Cervejas"} precioGrande={0} precioMedia={0}/>
-          <Submenu categoria={"Aguas"} precioGrande={0} precioMedia={0}/>
-        </>
-      )}
-       */}
     </section>
   )
 }

@@ -4,11 +4,9 @@ export const ItemSchema = z.object({
     _id: z.string(),
     categoria: z.string(),
     cantidad: z.number(),
-    tamaño: z.string(),
     sabores: z.number(),
     sabor1: z.string(),
     sabor2: z.string(),
-    sabor3: z.string(),
     precio: z.number()
 })
 
@@ -40,7 +38,6 @@ export type MenuContextProps = {
     multisabor: boolean,
     delivery: boolean,
     carrito: boolean,
-    tamaño: string,
     sabores: number,
     total: number,
     alertPizza: boolean,
@@ -50,9 +47,7 @@ export type MenuContextProps = {
     setProductoActual: React.Dispatch<React.SetStateAction<Product>>,
     setDelivery: React.Dispatch<React.SetStateAction<boolean>>,
     setCarrito: React.Dispatch<React.SetStateAction<boolean>>,
-    setTamaño: React.Dispatch<React.SetStateAction<string>>,
     setSabores: React.Dispatch<React.SetStateAction<number>>,
-    setPrecio: React.Dispatch<React.SetStateAction<number>>,
     setAlertPizza: React.Dispatch<React.SetStateAction<boolean>>,
     handleAgregarItem: (e: {preventDefault: () => void;}) => void,
     handleEliminarItem: (id: string) => void,
