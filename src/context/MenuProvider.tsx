@@ -11,6 +11,7 @@ const MenuContext = createContext<MenuContextProps>({} as MenuContextProps)
 
 const MenuProvider = ({ children }: props) => {
   const pizza = "674f750add362637b281687d"
+  const empanadas = "676189428ba5e4b08cdfcae4"
 
   const [menu, setMenu] = useState("Tudo")
   const [desplegable, setDesplegable] = useState(false)
@@ -59,7 +60,7 @@ const MenuProvider = ({ children }: props) => {
       categoria: productoActual.category,
       cantidad: 1,
       sabores: sabores,
-      sabor1: productoActual.name,
+      sabor1: productoActual.subcategory === empanadas ? `Empanada do ${productoActual.name}`: productoActual.category === pizza ? `Pizza ${productoActual.name}`: productoActual.name,
       sabor2: "",
       precio: productoActual.price
     }
@@ -99,7 +100,7 @@ const MenuProvider = ({ children }: props) => {
       } else {
         const pizzaCompleta = {
           ...pizzaIncompleta,
-          sabor2: productoActual.name,
+          sabor2: ` / ${productoActual.name}`,
           precio: (pizzaIncompleta.precio > productoActual.price ? pizzaIncompleta.precio : productoActual.price),
           _id: `${pizzaIncompleta._id}${productoActual._id}`
         }
@@ -161,35 +162,15 @@ const MenuProvider = ({ children }: props) => {
   const handleRealizarPedido = () => {
     const numero = "+554792378248"
     let mensaje = ""
-    mensaje += `Pedido do web: \n`;
+    mensaje += `Pedido do web:  \n`;
     const copiaPedido: item[] = pedido
 
     for (const item of copiaPedido) {
       const itemCantidad = item.cantidad;
-      const itemCategoria = item.categoria;
-      const itemNombre = item.sabor1;
+      const itemNombre = item.sabor2 !== "" ? `${item.sabor1} ${item.sabor2}` : item.sabor1;
 
-      if (itemCategoria === "pizzas") {
-        const itemSabores = item.sabores;
-
-        mensaje += `${itemCantidad} Pizza\n `;
-        mensaje += `Sabor: \n`;
-
-        for (let i = 1; i <= itemSabores; i++) {
-          const sabor = item[`sabor${i}` as keyof item];
-          mensaje += `-${sabor} \n`;
-        }
-
-        mensaje += "\n";
-      }
-
-      else if (itemCategoria === "pratos") {
-        mensaje += `${itemCantidad} Prato \n`;
-        mensaje += `${itemNombre}\n`;
-      } else {
-        mensaje += `${itemCantidad} Bebida \n`;
-        mensaje += `${itemNombre}\n`;
-      }
+      mensaje += `${itemCantidad} \n`;
+      mensaje += `${itemNombre},  \n`;
     }
     mensaje += `Total do pedido = R$${total}`
 
