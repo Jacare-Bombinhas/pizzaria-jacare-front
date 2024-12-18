@@ -2,7 +2,7 @@ import useMenu from '../hooks/useMenu'
 import { item } from '../types/types'
 
 const ItemCarrito = ({ item }: { item: item }) => {
-  const { categoria, sabores, precio, sabor1, sabor2, cantidad, _id } = item
+  const { categoria, precio, sabor1, sabor2, cantidad, _id } = item
   const { handleEliminarItem, handleRestarCantidad, handleSumarCantidad } = useMenu()
 
   const categorias = () => {
