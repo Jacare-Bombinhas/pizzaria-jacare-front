@@ -41,7 +41,7 @@ const ModalProducto = () => {
       >
         <p className="titulo_producto">{productoActual.name}</p>
 
-        <button aria-label="cerrar ventana du producto" className="cerrar_modal" onClick={handleCerrarModal}>
+        <button type="button" aria-label="cerrar ventana du producto" className="cerrar_modal" onClick={handleCerrarModal}>
           <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" strokeWidth="3" stroke="#2c3e50" fill="none" strokeLinecap="round" strokeLinejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M18 6l-12 12" />

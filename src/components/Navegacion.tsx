@@ -1,11 +1,13 @@
 import useMenu from "../hooks/useMenu"
 
 const Navegacion = () => {
-  const {desplegable, setDesplegable, delivery, handleChangeCarrito} = useMenu()
+  const {desplegable, setDesplegable, delivery, pedido, handleChangeCarrito} = useMenu()
+  const cantidadItems = pedido.reduce((suma, item) => suma + item.cantidad, 0)
 
   const carro = (
     delivery &&
-    <div 
+    <button
+      type="button"
       className="boton_carrito"
       onClick={handleChangeCarrito}
       aria-label="carrito de compras"
@@ -17,7 +19,8 @@ const Navegacion = () => {
         <path d="M17 17h-11v-14h-2" />
         <path d="M6 5l14 1l-1 7h-13" />
       </svg>
-    </div>
+      {cantidadItems > 0 && <span key={cantidadItems} className="carrito_contador">{cantidadItems}</span>}
+    </button>
   )
 
   return (
