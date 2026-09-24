@@ -176,8 +176,8 @@ export default function CategoriesView() {
         <ReactSortable
           tag="ul"
           className={styles.list_container}
-          list={categoryList}
-          setList={setCategoryList}
+          list={categoryList.map(cat => ({ ...cat, id: cat._id }))}
+          setList={(newList) => setCategoryList(newList.map(({ id, ...rest }) => rest))}
           dragClass="sortableDrag"
           animation={200}
           easing="ease-out"

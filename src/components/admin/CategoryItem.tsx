@@ -199,8 +199,8 @@ export default function CategoryItem({ category, editCategory, deleteCategory }:
         <ReactSortable
           tag="ul"
           className={styles.subCats_container}
-          list={subCategoryList}
-          setList={setSubCategoryList}
+          list={subCategoryList.map(cat => ({ ...cat, id: cat._id }))}
+          setList={(list) => setSubCategoryList(list.map(cat => ({ ...cat, _id: cat.id })))}
           dragClass="sortableDrag"
           animation={200}
           easing="ease-out"

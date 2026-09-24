@@ -18,6 +18,7 @@ export async function getCategories() {
   try {
     const { data } = await api("/categories")
     const response = adminCategorySchema.safeParse(data)
+    console.log(data)
     if(response.success) {return response.data}
   } catch (error) {
     if(isAxiosError(error) && error.response) {
